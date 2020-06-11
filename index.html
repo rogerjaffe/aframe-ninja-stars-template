@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head> 
+    <meta charset="utf-8">
+    <title>APCSP Aliens</title>
+    <meta name="description" content="APCSP Aliens">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+    <script src="js/constants.js"></script>
+    <script src="js/starSpin.js"></script>
+  </head>
+  <body>
+<!-- Main scene definition.  scene-slime-controller defines slimes and  -->
+<!-- determines when the next slime should appear                       -->
+    <a-scene id="scene">
+
+<!-- Pre-defined assets -->
+      <a-assets>
+
+<!-- Ninja star 3D-model file -->
+        <a-asset-item id="c-star-dae" src="assets/Shuriken-sketchup.dae"></a-asset-item>
+
+<!-- Audio files -->
+        <audio id="swoosh" src="assets/swoosh.wav"></audio>
+
+      </a-assets>
+      
+      <!-- Create the surrounding environment -->
+      <a-sky material="color: #CCFFFF"></a-sky>
+
+      <a-entity id="ground"
+                geometry="primitive: plane; width: 500; height: 150"
+                position="0 -1 -25"
+                material="color: rgb(253,132,59)"
+                rotation="-90 0 0">
+      </a-entity>
+
+      <a-entity star-spin
+                id="star"
+                collada-model="#c-star-dae"
+                position="0 1 -2"
+                scale="0.4 0.4 0.4">
+      </a-entity>
+
+      <a-entity camera look-controls
+                id="camera"
+                position="0 2 0"
+                rotation="0 0 0">
+      </a-entity>
+
+    </a-scene>
+    
+  </body>
+</html>
